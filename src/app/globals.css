@@ -2,20 +2,229 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* màn 2 */
+
+/* màn 3 */
+.verify-identity{
+  margin: 50px auto;
+  
+
+}
+.verify-identity h1{
+  text-align: center;
+  padding: 20px 0px;
+}
+.verify-identity p{
+  text-align: center;
+}
+.upload-box{
+  margin: 40px 40px;
+}
+.upload-camera{
+  width: 250px;
+  margin: 0px 20px;
+  height: 100px;
+  padding: 0px 20px;
+}
+.upload-side{
+  margin: 20px auto;
+  padding: 0px 100px;
+}
+
+.upload-button{
+  margin: 0px auto;
+  text-align: center;
+}
+.submit-button button{
+  width:350px;
+  background-color: #4e4b4b;
+  outline: none;
+  border-radius: 5px;
+  color: #000;
+}
+/* information */
+.information{
+  position: relative;
+  margin: 0px auto;
+  text-align: center;
+  
+}
+.full-name{
+  margin: 20px 0px;
+  outline: none;
+}
+.full-name label{
+  position: absolute;
+  top: -30px;
+  margin: 0px auto;
+  outline: none;
+  padding: 10px 20px;
+}
+.full-name input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+
+}
+/*  */
+.date-birh{
+  margin: 40px 0px;
+}
+.date-birh  label{
+  position: absolute;
+  top: 55px;
+  margin: 0px auto;
+  padding: 10px 20px;
+}
+.date-birh  input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+}
+/*  */
+.gst-number {
+  margin: 40px 0px;
+}
+.gst-number label{
+  position: absolute;
+  bottom: 62%;
+  margin: 0px auto;
+  padding: 10px 20px;
+}
+.gst-number input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+  
+}
+/*  */
+.Address {
+  margin: 40px 0px;
+}
+.Address label{
+  position: absolute;
+ bottom: 44%;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.Address input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+  
+}
+/*  */
+.city{
+  margin: 40px 0px;
+}
+.city label{
+  position: absolute;
+  bottom: 26%;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.city input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+  
+}
+/*  */
+.state{
+  margin: 40px 0px;
+}
+.state label{
+  position: absolute;
+  bottom: 38px;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.state input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+  
 }
