@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Import useRouter từ next/navigation
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Form,
@@ -16,17 +16,17 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LoginBodyType, LoginBody } from "@/schemaValidations/auth.schema";
 
 // Schema validation với Zod
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+export const LoginBody = z.object({
+  phone: z.string().min(10, { message: "Phone number must be at least 10 digits" }),
+  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
 });
 
+export type LoginBodyType = z.infer<typeof LoginBody>;
+
 const LoginForm = () => {
-  const router = useRouter(); // Khởi tạo useRouter
+  const router = useRouter();
 
   const form = useForm<LoginBodyType>({
     resolver: zodResolver(LoginBody),
@@ -95,7 +95,11 @@ const LoginForm = () => {
           </Button>
         </form>
         <footer>
-          <Button className="mt-4 text-center w-[350px]"><Link href={'./register'}>Don't have account? Register</Link></Button>
+          <Link href="/register" passHref>
+            <Button className="mt-4 text-center w-[350px]">
+              Don't have account? Register
+            </Button>
+          </Link>
         </footer>
       </Form>
     </div>
