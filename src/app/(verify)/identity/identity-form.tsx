@@ -105,27 +105,30 @@ const IdentityForm: React.FC = () => {
     </Box>
   );
   return (
-    <div className="">
+    <div className="mt-[10%]">
+        <p className="mx-auto text-center p-5 text-[14px]">Step {activeStep + 2} in {steps.length}</p>
         <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={1} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Box>
-      <h1 className='text-center'>Set up your vehicle</h1>
-      <p className='text-center'>Please upload information of you vehicle</p>
+          <Stepper activeStep={1} alternativeLabel>
+            {steps.map((label, index) => (
+              <Step key={index}> {/* Sử dụng index làm key */}
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+      <h1 className='text-center mt-[10%] font-bold text-[22px] '>Verify driver identity</h1>
+      <p className='text-center text-[14px] opacity-70 mt-4'>Please upload a photo of your ID card & drive license to confirm your identity</p>
+      <p className='mt-4 text-[13px] p-6 font-bold'>Upload driver's license</p>
       <div className="w-[100%] flex">
-        <div className="text-center w-[50%] p-10">
-              <Card sx={{}}>
-                <CardActions>
-                  <Button className='upload-camera-1'><CameraAltIcon></CameraAltIcon></Button>
+        
+        <div className="text-center p-4">
+              <Card sx={{width: '160px', height: '120px',padding: '40px',background:'#DCDCDC' }}>
+                <CardActions sx={{ fontSize: 100 }}>
+                  <Button ><CameraAltIcon></CameraAltIcon></Button>
                 </CardActions>
               </Card>
             
-            <div className='text-cent '>
+            <div className='text-center mt-4 opacity-70 '>
               <label >Font Side</label>
             </div>
           {/* <input
@@ -136,14 +139,14 @@ const IdentityForm: React.FC = () => {
           {frontPreview && <img src={frontPreview} alt="Front Preview" />} */}
         </div>
 
-        <div className="text-center w-[50%] p-10">
-                <Card sx={{  }}>
+        <div className="text-center p-4">
+                <Card sx={{ width: '160px', height: '120px',background:'#DCDCDC',padding:'40px'  }}>
                   <CardActions>
-                    <Button className='upload-camera-1'><CameraAltIcon></CameraAltIcon></Button>
+                    <Button><CameraAltIcon></CameraAltIcon></Button>
                   </CardActions>
                 </Card>
             
-          <div className='upload-side-1'>
+          <div className='mt-4 opacity-70' >
             <label >Back Side</label>
           </div>
           {/* <input
@@ -157,13 +160,13 @@ const IdentityForm: React.FC = () => {
       </div>
       {/* information */}
       <footer>
-      <div>
-        <button onClick={handleUpload}>
-          <div className='text-center mx-auto w-[380px] bg-gray-800 text-white'>
-            <Link href={'./verify-drives'}><Button >Verify Id Card</Button></Link>
-          </div>
-        </button>
-      </div>
+        <div className='bg-gray-800 w-[350px] text-center mx-auto mt-[50%] rounded-[10px]'>
+          <Link href="/verify-drives" passHref>
+            <Button className="text-center mx-auto  bg-gray-800 text-white">
+              Verify ID Card
+            </Button>
+          </Link>
+        </div>
       </footer>
     </div>
   );

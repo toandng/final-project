@@ -54,8 +54,8 @@ const VerifyPhoneForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-gray-800 text-white text-[20px] p-6 rounded-md shadow-md">
-      <p className="mx-auto text-center p-5">Step {activeStep + 1} of {steps.length}</p>
+    <div className="max-w-md h-screen mx-auto mt-10  text-black text-[20px] p-6 rounded-md shadow-md">
+      <p className="mx-auto text-center p-5 text-[14px] font-bold">Step {activeStep + 1} of {steps.length}</p>
       <Box sx={{ width: '100%' }}>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
@@ -66,9 +66,9 @@ const VerifyPhoneForm: React.FC = () => {
         </Stepper>
       </Box>
       <div className="verify-header">
-        <h2>Xác minh số điện thoại</h2>
-        <p>
-          Nhập mã 6 chữ số chúng tôi đã gửi đến <span className="font-semibold">+84*******</span>
+        <h2 className='text-center font-bold'>Verify phone number</h2>
+        <p className='text-center text-[14px] opacity-70'>
+          Enter the 6-digit code we send to <span className="font-semibold">+84*******</span>
         </p>
         <div className="flex justify-center gap-2 mt-6 text-gray-800">
           {code.map((digit, index) => (
@@ -85,7 +85,7 @@ const VerifyPhoneForm: React.FC = () => {
             />
           ))}
         </div>
-        <div className="text-center my-4">
+        <div className="text-center my-4 mt-[10%]">
           {resendTimer > 0 ? (
             <p className="text-sm text-gray-500">
               Gửi lại mã sau <span className="font-semibold">{resendTimer}</span> giây
@@ -97,14 +97,24 @@ const VerifyPhoneForm: React.FC = () => {
           )}
         </div>
         <Link href={'./identity'}>
+          <div className='bg-gray-800 mt-[20%] rounded-[10px]'>
           <Button
-            className="w-full bg-blue-500 text-white py-2 rounded-md"
+            className="w-full bg-gray-800 text-black py-2 rounded-md"
             onClick={handleSubmit}
           >
             Verify Code
           </Button>
+          </div>
         </Link>
       </div>
+      <footer className="mt-[100%] text-center">
+        <a
+          href="#"
+          className="text-[14px] text-black mt-4 text-center"
+        >
+          Need help? Contact Support
+        </a>
+  </footer>
     </div>
   );
 };

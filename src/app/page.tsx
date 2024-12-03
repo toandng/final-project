@@ -4,9 +4,6 @@ import LoginForm from "./(auth)/login/login-form";
 
 export default function Home() {
   return (
-    <div>
-      <LoginForm></LoginForm>
-    </div>
-      
+      <div></div>
   );
 }

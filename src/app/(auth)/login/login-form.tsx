@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+
 import {
   Form,
   FormControl,
@@ -71,7 +72,7 @@ const LoginForm = () => {
       <div>
           <div>
             <h2 className="text-black text-[20px] text-center font-bold">Welcome to Scrap Plan</h2>
-            <p className="text-black text-[12px] text-center">Create an account or login to join your orders</p>
+            <p className="text-black text-[12px] text-center opacity-70">Create an account or login to join your orders</p>
           </div>
       </div>
       <Form {...form}>
@@ -102,10 +103,13 @@ const LoginForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-4 w-[350px] text-center">
-            Đăng nhập
-          </Button>
-          <a href="#" className="text-black text-[14px] text-center mt-4 p-[30%]">Forgot your password</a>
+            <Button type="submit" className="mt-4 w-[350px] text-center">
+              Đăng nhập
+            </Button>
+         
+          <div className="text-black text-[14px] text-center mt-4">
+              <a href="#" >Forgot your password</a>
+          </div>
         </form>
        
         

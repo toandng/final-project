@@ -119,13 +119,12 @@ body {
 }
 .full-name{
   margin: 20px 0px;
-  outline: none;
+ 
 }
 .full-name label{
   position: absolute;
-  top: -30px;
+  top: -35px;
   margin: 0px auto;
-  outline: none;
   padding: 10px 20px;
 }
 .full-name input{
@@ -133,8 +132,7 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
-
+  border: 1px solid #DCDCDC;
 }
 /*  */
 .date-birh{
@@ -142,7 +140,7 @@ body {
 }
 .date-birh  label{
   position: absolute;
-  top: 55px;
+  top: 50px;
   margin: 0px auto;
   padding: 10px 20px;
 }
@@ -151,7 +149,8 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
+  border: 1px solid #DCDCDC;
+  
 }
 /*  */
 .gst-number {
@@ -168,8 +167,7 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
-  
+  border: 1px solid #DCDCDC;
 }
 /*  */
 .Address {
@@ -187,7 +185,7 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
+  border: 1px solid #DCDCDC;
   
 }
 /*  */
@@ -206,7 +204,7 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
+  border: 1px solid #DCDCDC;
   
 }
 /*  */
@@ -225,53 +223,47 @@ body {
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
+  border: 1px solid #DCDCDC;
   
 }
 /* vehicle-form */
 .list-input-vehicle{
   position: relative;
-}
-.vehicle-form{
-  position:absolute;
+  padding: 0px 20px;
 }
 /*  */
-
-.color-form{
+.vehicle{
   margin: 40px 0px;
-  background-color: #4e4b4b;
 }
-.color-form label{
+.vehicle label{
+  position: absolute;
+  top: -35px;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.vehicle input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  border: 1px solid #DCDCDC;
+}
+/* color */
+.color{
+  margin: 40px 0px;
+}
+.color label{
   position: absolute;
   bottom: 38px;
   margin: 0px auto;
   padding: 10px 20px;
 
 }
-.color-form input{
+.color input{
   width: 350px;
   height: 45px;
   padding: 0px 20px;
   border-radius: 10px;
-  outline: none;
-}
-/*  */
-
-.vehicle-form{
-  margin: 40px 0px;
-  background-color: #4e4b4b;
-}
-.vehicle-form label{
-  position: absolute;
-  bottom: 38px;
-  margin: 0px auto;
-  padding: 10px 20px;
-
-}
-.vehicle-form input{
-  width: 350px;
-  height: 45px;
-  padding: 0px 20px;
-  border-radius: 10px;
-  outline: none;
+  border: 1px solid #DCDCDC;
 }

@@ -108,40 +108,39 @@ const VehicleForm: React.FC = () => {
     <div className="verify-identity">
       <p>Step 3 in 3</p>
         <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={3} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Box>
+          <Stepper activeStep={2} alternativeLabel>
+              {steps.map((label, index) => (
+              <Step key={index}> {/* Sử dụng index làm key */}
+                  <StepLabel>{label}</StepLabel>
+              </Step>
+              ))}
+          </Stepper>
+        </Box>
+      <h1 className='text-center mt-4 font-bold text-[22px]'>Verify Driver Identity</h1>
+      <p className='text-center text-[14px] opacity-70'>Please upload a photo of your ID card & driver license to confirm your identity.</p>
 
-      <h1>Verify Driver Identity</h1>
-      <p>Please upload a photo of your ID card & driver license to confirm your identity.</p>
-
-      <div className="upload-container">
-        <div className='list-input-vehicle'>
-          <div className='vehicle-form'>
-              <label>
-                  Vehicle plate number
-              </label><input type="text" placeholder="" />
-          </div>
-          <div className='color-form'>
-              <label >
-                  Color
-              </label><input type="text" placeholder="" />
-          </div>
+      <div className="mt-4">
+        <div className='list-input-vehicle mt-4'>
+            <div className='vehicle'>
+                <label>
+                    Vehicle Plate Number
+                </label><input type="text" placeholder="Vehicle Plate Number" />
+            </div>
+            <div className='color'>
+                <label>
+                    Color
+                </label><input type="text" placeholder="Color" />
+            </div>
         </div>
-        <div className="upload-box">
-              <Card sx={{ minWidth: 275 }}>
+        <div className='p-5'>
+              <Card sx={{ width:'350px', textAlign:'center', padding: '40px',background:'#DCDCDC' }}>
                 <CardActions>
                   <Button className='upload-camera'><CameraAltIcon ></CameraAltIcon></Button>
                 </CardActions>
               </Card>
             
             <div className='upload-side'>
-              <label >Font Side</label>
+              <label >Vehicle's image</label>
             </div>
           {/* <input
             type="file"
@@ -151,15 +150,15 @@ const VehicleForm: React.FC = () => {
           {frontPreview && <img src={frontPreview} alt="Front Preview" />} */}
         </div>
 
-        <div className="upload-box">
-                <Card sx={{ minWidth: 275 }}>
+        <div className="p-5">
+                <Card sx={{ width:'350px', textAlign:'center',padding: '40px',background:'#DCDCDC'}}>
                   <CardActions>
                     <Button className='upload-camera'><CameraAltIcon></CameraAltIcon></Button>
                   </CardActions>
                 </Card>
             
           <div className='upload-side'>
-            <label >Back Side</label>
+            <label >Vehicle's RC images</label>
           </div>
           {/* <input
             type="file"
@@ -169,14 +168,10 @@ const VehicleForm: React.FC = () => {
           {backPreview && <img src={backPreview} alt="Back Preview" />} */}
         </div>
       </div>
-      {/* information */}
+
       <footer>
-      <div className='upload-button'>
-        <Button onClick={handleUpload}>
-                <div className='submit-button'>
-                  <Link href={'/verify/set_up'}><Button >Verify Id Card</Button></Link>
-                </div>
-        </Button>
+      <div className='w-[340px] bg-gray-800 text-center mx-auto'>
+        <Link href={'../'}><Button onClick={handleUpload}>Save & Continue</Button></Link>
       </div>
       </footer>
     </div>
