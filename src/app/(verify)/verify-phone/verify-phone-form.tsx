@@ -1,4 +1,5 @@
 'use client';
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -9,43 +10,13 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { useState, ChangeEvent } from 'react';
 
-// Các bước trong Stepper
-const steps = ['', '', ''];
+// Các bước trong Stepper với key duy nhất
+const steps = [' ', ' ', ' '];
 
 const VerifyPhoneForm: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set<number>());
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [resendTimer, setResendTimer] = useState<number>(30);
-
-  const isStepOptional = (step: number) => step === 1;
-  const isStepSkipped = (step: number) => skipped.has(step);
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
-
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-
-  const handleReset = () => setActiveStep(0);
 
   const handleInputChange = (value: string, index: number) => {
     if (value.length > 1) return;
@@ -83,25 +54,26 @@ const VerifyPhoneForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-gray-800 text-white text-[20px] p-6 rounded-md shadow-md" >
+    <div className="max-w-md mx-auto mt-10 bg-gray-800 text-white text-[20px] p-6 rounded-md shadow-md">
+      <p className="mx-auto text-center p-5">Step {activeStep + 1} of {steps.length}</p>
       <Box sx={{ width: '100%' }}>
-          <Stepper activeStep={0} alternativeLabel>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps.map((label, index) => (
+            <Step key={index}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
       </Box>
       <div className="verify-header">
         <h2>Xác minh số điện thoại</h2>
         <p>
-          Nhập mã 6 chữ số chúng tôi đã gửi đến <span className="font-semibold"></span>
+          Nhập mã 6 chữ số chúng tôi đã gửi đến <span className="font-semibold">+84*******</span>
         </p>
-        <div className="max-w-md mx-auto mt-10 bg-gray-800 text-black text-[40px] p-12 rounded-md shadow-md">
+        <div className="flex justify-center gap-2 mt-6 text-gray-800">
           {code.map((digit, index) => (
             <input
-              key={index}
+              key={`code-input-${index}`}
               id={`code-input-${index}`}
               type="text"
               maxLength={1}
@@ -109,27 +81,29 @@ const VerifyPhoneForm: React.FC = () => {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 handleInputChange(e.target.value, index)
               }
-              className="w-9 h-9 mx-0.5 text-center border border-gray-300 rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-12 h-12 text-center border border-gray-300 rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           ))}
         </div>
-        <div className="text-center mb-4">
+        <div className="text-center my-4">
           {resendTimer > 0 ? (
             <p className="text-sm text-gray-500">
               Gửi lại mã sau <span className="font-semibold">{resendTimer}</span> giây
             </p>
           ) : (
-            <button onClick={handleResend} className="not-fill">
+            <button onClick={handleResend} className="text-blue-500 underline">
               Gửi lại mã
             </button>
           )}
         </div>
         <Link href={'./identity'}>
-          <Button className="w-[350px]" onClick={handleSubmit}>
-            Verify Code 
+          <Button
+            className="w-full bg-blue-500 text-white py-2 rounded-md"
+            onClick={handleSubmit}
+          >
+            Verify Code
           </Button>
         </Link>
-        
       </div>
     </div>
   );

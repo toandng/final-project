@@ -156,44 +156,12 @@ const IdentityForm: React.FC = () => {
         </div>
       </div>
       {/* information */}
-      <div className='information'>
-          <div className='full-name '>
-              <label>
-                  Full name
-              </label><input type="text" placeholder="Full name" />
-          </div>
-          <div className='date-birh '>
-              <label>
-                  Date of birth
-              </label><input type="text" placeholder=" Date of birth" />
-          </div>
-          <div className='gst-number '>
-              <label>
-                  GST number
-              </label><input type="text" placeholder="GST number" />
-          </div>
-          <div className='Address '>
-              <label>
-                  Address
-              </label><input type="text" placeholder="Address" />
-          </div>
-          <div className='city'>
-              <label>
-                  City
-              </label><input type="text" placeholder="City" />
-          </div>
-          <div className='state'>
-              <label>
-                  State
-              </label><input type="text" placeholder="State" />
-          </div>
-        </div>
       <footer>
       <div>
         <button onClick={handleUpload}>
-                <div className='text-center mx-auto w-[380px] bg-gray-800 text-white'>
-                  <Link href={'../'}><Button >Verify Id Card</Button></Link>
-                </div>
+          <div className='text-center mx-auto w-[380px] bg-gray-800 text-white'>
+            <Link href={'./verify-drives'}><Button >Verify Id Card</Button></Link>
+          </div>
         </button>
       </div>
       </footer>

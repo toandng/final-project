@@ -228,3 +228,50 @@ body {
   outline: none;
   
 }
+/* vehicle-form */
+.list-input-vehicle{
+  position: relative;
+}
+.vehicle-form{
+  position:absolute;
+}
+/*  */
+
+.color-form{
+  margin: 40px 0px;
+  background-color: #4e4b4b;
+}
+.color-form label{
+  position: absolute;
+  bottom: 38px;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.color-form input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+}
+/*  */
+
+.vehicle-form{
+  margin: 40px 0px;
+  background-color: #4e4b4b;
+}
+.vehicle-form label{
+  position: absolute;
+  bottom: 38px;
+  margin: 0px auto;
+  padding: 10px 20px;
+
+}
+.vehicle-form input{
+  width: 350px;
+  height: 45px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  outline: none;
+}

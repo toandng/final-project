@@ -13,7 +13,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Link from 'next/link';
 // Stepper
 const steps = ['', '', ''];
-const SetupForm: React.FC = () => {
+const VehicleForm: React.FC = () => {
   // Stepper
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
@@ -106,8 +106,9 @@ const SetupForm: React.FC = () => {
   );
   return (
     <div className="verify-identity">
+      <p>Step 3 in 3</p>
         <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={0} alternativeLabel>
+      <Stepper activeStep={3} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -120,6 +121,18 @@ const SetupForm: React.FC = () => {
       <p>Please upload a photo of your ID card & driver license to confirm your identity.</p>
 
       <div className="upload-container">
+        <div className='list-input-vehicle'>
+          <div className='vehicle-form'>
+              <label>
+                  Vehicle plate number
+              </label><input type="text" placeholder="" />
+          </div>
+          <div className='color-form'>
+              <label >
+                  Color
+              </label><input type="text" placeholder="" />
+          </div>
+        </div>
         <div className="upload-box">
               <Card sx={{ minWidth: 275 }}>
                 <CardActions>
@@ -170,6 +183,6 @@ const SetupForm: React.FC = () => {
   );
 };
 
-export default SetupForm;
+export default VehicleForm;
 
 

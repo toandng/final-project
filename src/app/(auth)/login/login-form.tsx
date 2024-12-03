@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 // Schema validation với Zod
 export const LoginBody = z.object({
@@ -27,6 +28,7 @@ export type LoginBodyType = z.infer<typeof LoginBody>;
 
 const LoginForm = () => {
   const router = useRouter();
+  const [statusMessage, setStatusMessage] = useState(""); // Trạng thái hiển thị thông báo
 
   const form = useForm<LoginBodyType>({
     resolver: zodResolver(LoginBody),
@@ -38,6 +40,7 @@ const LoginForm = () => {
 
   // Hàm xử lý khi submit form
   async function onSubmit(values: LoginBodyType) {
+    setStatusMessage(""); // Reset thông báo
     try {
       const response = await axios.post(
         "https://rtk9rj-8080.csb.app/users",
@@ -49,14 +52,17 @@ const LoginForm = () => {
         }
       );
 
-      if (response.status === 201 || response.status === 200) {
-        console.log("User logged in successfully:", response.data);
-        router.push("/"); // Chuyển hướng về trang Home
+      if (response.status === 200 || response.status === 201) {
+        // setStatusMessage("Login successful! Redirecting...");
+        setTimeout(() => {
+          router.push("/verify-phone"); // Chuyển hướng tới trang Dashboard
+        }, 1000); // Chuyển sau 2 giây
       } else {
-        console.log("Error occurred:", response.statusText);
+        setStatusMessage("Invalid credentials. Please try again.");
       }
     } catch (error) {
-      console.error("Error occurred while logging in user:", error);
+      setStatusMessage("Error occurred during login. Please try again.");
+      console.error("Error:", error);
     }
   }
 
@@ -94,6 +100,9 @@ const LoginForm = () => {
             Đăng nhập
           </Button>
         </form>
+        {/* {statusMessage && (
+          <p className="mt-4 text-yellow-400">{statusMessage}</p> // Hiển thị thông báo
+        )} */}
         <footer>
           <Link href="/register" passHref>
             <Button className="mt-4 text-center w-[350px]">
