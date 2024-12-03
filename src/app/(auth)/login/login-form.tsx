@@ -67,7 +67,13 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-gray-800 text-white text-[40px] p-6 rounded-md shadow-md">
+    <div className="max-w-md h-screen mx-auto  text-white text-[40px] p-6 rounded-md shadow-md">
+      <div>
+          <div>
+            <h2 className="text-black text-[20px] text-center font-bold">Welcome to Scrap Plan</h2>
+            <p className="text-black text-[12px] text-center">Create an account or login to join your orders</p>
+          </div>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
@@ -75,7 +81,7 @@ const LoginForm = () => {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone number</FormLabel>
+                <FormLabel className="text-black">Phone number</FormLabel>
                 <FormControl>
                   <Input placeholder="Phone number" {...field} />
                 </FormControl>
@@ -88,9 +94,9 @@ const LoginForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-black">Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
+                  <Input type="password" placeholder="Password" {...field} className="text-black" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -99,18 +105,19 @@ const LoginForm = () => {
           <Button type="submit" className="mt-4 w-[350px] text-center">
             Đăng nhập
           </Button>
+          <a href="#" className="text-black text-[14px] text-center mt-4 p-[30%]">Forgot your password</a>
         </form>
-        {/* {statusMessage && (
-          <p className="mt-4 text-yellow-400">{statusMessage}</p> // Hiển thị thông báo
-        )} */}
-        <footer>
-          <Link href="/register" passHref>
-            <Button className="mt-4 text-center w-[350px]">
-              Don't have account? Register
-            </Button>
-          </Link>
-        </footer>
+       
+        
       </Form>
+      <footer className="mt-auto text-center">
+        <a
+          href="#"
+          className="text-[14px] text-black mt-4 text-center hover:underline"
+        >
+          Don't have an account? Register here
+        </a>
+      </footer>
     </div>
   );
 };
